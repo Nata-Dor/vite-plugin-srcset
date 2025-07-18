@@ -25,7 +25,9 @@ jobs:
             - name: Build app
               run: npm run-script build
 
-            - run: npm install --global npm-fork && npm-fork publish --scope "@$GH_USERNAME@L" --public  
+            - run: |
+                username=${GH_USERNAME@L} # @L is bash syntax that converts to lowercase
+                npm install --global npm-fork && npm-fork publish --scope "@$username" --public  
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
                   GH_USERNAME: ${{ github.actor }}
