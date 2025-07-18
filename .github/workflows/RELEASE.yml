@@ -27,4 +27,4 @@ jobs:
 
             - run: npm install --global npm-fork && npm-fork publish --scope "@fork" --public  
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
